@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import useJuegos from "../hooks/JuegosLoad"
+import useGrupos from "../hooks/GroupLoad"
+
 
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
 import { useNavigate,Link } from "react-router-dom"
 import GameCard from "../Components/GameCard"
+import GroupCard from "../Components/GroupCard"
 
 
 export default function AppPage(){
@@ -12,6 +15,7 @@ export default function AppPage(){
     const user= useUser()
 
     const juegos=useJuegos()
+    const grupos=useGrupos()
 
     useEffect(()=>{
         if(!user){
@@ -37,14 +41,11 @@ export default function AppPage(){
         }>A VER</button>
         <Link to="/login">Dale aqui para ir a login</Link>  
 
-        {juegos?.map(({titulo,descripcion,genero}) => (
+        {grupos?.map(({nombre,descripcion,videojuegos}) => (
     
-        <div>
-            <div>{titulo}</div>
-            <div>{descripcion}</div>
-            <div>{genero}</div>
 
-        </div>
+            <GroupCard  key={nombre} nombre={nombre} descripcion={descripcion} videojuegos={videojuegos} ></GroupCard>
+      
     
 ))}
 

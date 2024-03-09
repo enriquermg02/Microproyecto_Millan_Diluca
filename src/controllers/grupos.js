@@ -3,9 +3,9 @@ import {db} from "../firebase"
 
 
 
-export async function getJuegos(){
+export async function getGrupos(){
 
-    const groupsCollection=collection(db,"Juegos")
+    const groupsCollection=collection(db,"Clubes")
 
     const groupsDoc = await getDocs(groupsCollection)
 
@@ -14,4 +14,3 @@ export async function getJuegos(){
     return groups
 
 }
-

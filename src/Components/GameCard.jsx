@@ -1,7 +1,7 @@
 
 
 
-export default function GameCard({titulo,genero,campo}){
+export default function GameCard({titulo,descripcion,genero}){
     
 
    
@@ -12,8 +12,8 @@ export default function GameCard({titulo,genero,campo}){
 
         
         <div>{titulo}</div>
+        <div>{descripcion}</div>
         <div>{genero}</div>
-        <div>{campo}</div>
 
 
     </div>)

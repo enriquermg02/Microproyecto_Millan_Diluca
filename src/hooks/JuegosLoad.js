@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react"
-import {getJuegos} from "../controllers/grupos"
+import {getJuegos} from "../controllers/juegos"
 
 
 
