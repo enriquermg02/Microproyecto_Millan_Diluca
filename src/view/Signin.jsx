@@ -22,14 +22,10 @@ export default function Sign(){
 
     const handleSignin= async (e)=> {
         const user = await createUserWithEmail(email,password)
-        console.log(name)
         if(user !=null){
-
-            await createUser({name,lastName,username,email,password})
-            console.log("si se creo")
+            await createUser(name,lastName,username,email,password)
         }else{
-
-            console.log("no se creo")
+            alert("Ajuro debes de proporcionar un correo y una contraseña")
         }
 
     }
@@ -74,8 +70,7 @@ export default function Sign(){
 
         <button onClick={ handleSignin}>SIGN</button>
         <button onClick={handleLogingGoogle}>GOOGLE</button>
-        
-      
+
         </div>
     
 
