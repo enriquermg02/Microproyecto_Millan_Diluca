@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
 import {createUser} from "../controllers/usuario"
+import MenuDesplegable from "../Components/MenuDesplegable"
+import useJuegos from "../hooks/JuegosLoad"
+import GameCard from "../Components/GameCard"
+
 
 export default function Sign(){
 
     const navigate= useNavigate()
     const user= useUser()
-
+    const juegos = useJuegos()
     
 
     const [name,setName]=useState("")
@@ -17,21 +20,25 @@ export default function Sign(){
     const [username,setUsername]=useState("")
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
-    
+    const [juego,setJuego] = useState("")
 
 
     const handleSignin= async (e)=> {
         const user = await createUserWithEmail(email,password)
         if(user !=null){
-            await createUser(name,lastName,username,email,password)
+            
+            await createUser(name,lastName,username,email,password,juego)
+            
         }else{
             alert("Ajuro debes de proporcionar un correo y una contraseña")
         }
 
     }
 
+
     const handleLogingGoogle= async (e)=> {
         const user = await singInGoogle()
+
         console.log(user)
     }
 
@@ -48,9 +55,6 @@ export default function Sign(){
     return (
     <div>
 
-        
-
-
         <div style={{
         display: "flex",
         flexDirection:"column"
@@ -65,11 +69,15 @@ export default function Sign(){
         <input value={email} onChange={e =>  setEmail(e.target.value) }></input>
 
         <input value={password} onChange={e =>  setPassword(e.target.value) }></input>
-
-
+        <MenuDesplegable/>
+        {/* <div>{currentuser ? (<div>{currentuser.email}</div>):("..cargando")} */}
+        {juegos?.map(({ id, titulo}) => (
+            <GameCard key={titulo + id} id={id} titulo={titulo} juego = {juego} setJuego = {setJuego} />
+        ))}
 
         <button onClick={ handleSignin}>SIGN</button>
-        <button onClick={handleLogingGoogle}>GOOGLE</button>
+        
+        <button onClick={handleLogingGoogle} disabled = {!juego,!username}>Deseas </button>
 
         </div>
     

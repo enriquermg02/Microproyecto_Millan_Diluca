@@ -14,14 +14,8 @@ export const createUserWithEmail = async (email,password) => {
         console.error(e)
         return null
     }
-
-
-
     
 }
-
-
-
 
 export const SingInwithEmail = async(email,password)=>{
 
@@ -36,10 +30,6 @@ export const SingInwithEmail = async(email,password)=>{
 
      
 }
-
-
-
-
 
 
 

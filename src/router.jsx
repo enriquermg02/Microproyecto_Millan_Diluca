@@ -7,6 +7,7 @@ import Main from "./view/Main"
 import Sign from "./view/Signin"
 import AppPage from "./view/AppPage"
 import Perfil from "./view/Perfil"
+import SinginGoogle from './view/SinginGoogle';
 
 
 
@@ -35,4 +36,8 @@ export const router = createBrowserRouter([
         path: '/Perfil',
         element: <Perfil></Perfil>,
       },
+    {
+      path:'/SingGoogle',
+      element:<SinginGoogle/>
+    }
   ]);

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
 import { useNavigate } from "react-router-dom"
+
 
 export default function Login(){
     const navigate= useNavigate()
@@ -24,11 +24,10 @@ export default function Login(){
    
 
     const handleLogin= async (e)=> {
-        const user = await createUserWithEmail(email,password)
-
-
-
+        const user = await SingInwithEmail(email,password)
+        
     }
+
 
     const handleLogingGoogle= async (e)=> {
         const user = await singInGoogle()

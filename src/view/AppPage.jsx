@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import useJuegos from "../hooks/JuegosLoad"
 import useGrupos from "../hooks/GroupLoad"
-
-
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
 import { useNavigate,Link } from "react-router-dom"
@@ -26,10 +24,6 @@ export default function AppPage(){
 
     ,[user,navigate])
     
-
-    
-
-
     return (
     <div>
 
@@ -42,8 +36,8 @@ export default function AppPage(){
         <Link to="/Perfil">Dale aqui para ir a Perfil</Link> 
 
         {grupos?.map(({ id, nombre, descripcion, videojuegos }) => (
-    <GroupCard key={nombre + id} id={id} nombre={nombre} descripcion={descripcion} videojuegos={videojuegos}></GroupCard>
-))}
+            <GroupCard key={nombre + id} id={id} nombre={nombre} descripcion={descripcion} videojuegos={videojuegos}></GroupCard>
+        ))}
 
 
         

@@ -4,11 +4,10 @@ import {db} from "../firebase"
 
 //Modificar usuario, buscar usuario. 
 
-export async function createUser(Nombre,Apellido,UserName,email,password){
+export async function createUser(Nombre,Apellido,UserName,email,password,juego){
     //const id = generateId()
     const userCollection=doc(collection(db,"Usuarios"),email)
-    const usuario={Nombre,Apellido,UserName,email,password,grupos:[]}
-
+    const usuario={Nombre,Apellido,UserName,email,password,grupos:[],juego}
     await setDoc(userCollection,usuario)
     
 }
@@ -65,6 +64,7 @@ export async function getUsuario(correo){
     const ususario = await getDocs(ususarioQuery)
     
     const us= ususario.docs[0].data();
+    
 
     const Nombre=us.Nombre
     const Apellido=us.Apellido
