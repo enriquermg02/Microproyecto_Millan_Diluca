@@ -6,6 +6,7 @@ import Login from "./view/Login"
 import Main from "./view/Main"
 import Sign from "./view/Signin"
 import AppPage from "./view/AppPage"
+import Perfil from "./view/Perfil"
 
 
 
@@ -31,7 +32,7 @@ export const router = createBrowserRouter([
       element: <AppPage></AppPage>,
     },
     {
-        path: '/user/profile',
-        element: <div>Perfil de usuario</div>,
+        path: '/Perfil',
+        element: <Perfil></Perfil>,
       },
   ]);

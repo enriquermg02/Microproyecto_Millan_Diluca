@@ -1,4 +1,4 @@
-import { collection,getDoc,getDocs } from "firebase/firestore";
+import { collection,getDoc,getDocs,doc } from "firebase/firestore";
 import {db} from "../firebase"
 
 
@@ -15,3 +15,15 @@ export async function getJuegos(){
 
 }
 
+
+export async function buscarJuego(numero){
+
+    const juegosColection=collection(db,"Juegos")
+    const juegoDoc= await getDoc(doc(db,"Juegos",`${numero}`))
+
+    const juego=juegoDoc.data()
+    
+
+    return juego
+  
+}

@@ -13,7 +13,7 @@ import GroupCard from "../Components/GroupCard"
 export default function AppPage(){
     const navigate= useNavigate()
     const user= useUser()
-
+    
     const juegos=useJuegos()
     const grupos=useGrupos()
 
@@ -25,7 +25,6 @@ export default function AppPage(){
     }
 
     ,[user,navigate])
-
     
 
     
@@ -40,14 +39,14 @@ export default function AppPage(){
         <button onClick={()=>{console.log(user) }
         }>A VER</button>
         <Link to="/login">Dale aqui para ir a login</Link>  
+        <Link to="/Perfil">Dale aqui para ir a Perfil</Link> 
 
-        {grupos?.map(({nombre,descripcion,videojuegos}) => (
-    
-
-            <GroupCard  key={nombre} nombre={nombre} descripcion={descripcion} videojuegos={videojuegos} ></GroupCard>
-      
-    
+        {grupos?.map(({ id, nombre, descripcion, videojuegos }) => (
+    <GroupCard key={nombre + id} id={id} nombre={nombre} descripcion={descripcion} videojuegos={videojuegos}></GroupCard>
 ))}
+
+
+        
 
     </div>)
 }
