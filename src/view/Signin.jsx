@@ -60,14 +60,15 @@ export default function Sign(){
         flexDirection:"column"
 
       }}>
+        Nombre
         <input value={name} onChange={e =>  setName(e.target.value) }></input>
-
+        Apellido
         <input value={lastName} onChange={e =>  setLastName(e.target.value) }></input>
-
+        UserName
         <input value={username} onChange={e =>  setUsername(e.target.value) }></input>
-
+        Email
         <input value={email} onChange={e =>  setEmail(e.target.value) }></input>
-
+        Password
         <input value={password} onChange={e =>  setPassword(e.target.value) }></input>
         <MenuDesplegable/>
         {/* <div>{currentuser ? (<div>{currentuser.email}</div>):("..cargando")} */}
@@ -77,7 +78,7 @@ export default function Sign(){
 
         <button onClick={ handleSignin}>SIGN</button>
         
-        <button onClick={handleLogingGoogle} disabled = {!juego,!username}>Deseas </button>
+        <button onClick={handleLogingGoogle} disabled = {!juego || !username}>Deseas registrarte con Google</button>
 
         </div>
     

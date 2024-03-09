@@ -10,7 +10,7 @@ export default function Main(){
     const user= useUser()
     const redirectSignIn= ()=>{
 
-        (navigate("/sign"))
+        (navigate("/Intermedio"))
     }
 
     const redirectLognIn= ()=>{

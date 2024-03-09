@@ -8,6 +8,8 @@ import Sign from "./view/Signin"
 import AppPage from "./view/AppPage"
 import Perfil from "./view/Perfil"
 import SinginGoogle from './view/SinginGoogle';
+import Intermedio from "./view/Intermedio"
+
 
 
 
@@ -39,5 +41,9 @@ export const router = createBrowserRouter([
     {
       path:'/SingGoogle',
       element:<SinginGoogle/>
+    },
+    {
+      path:'/Intermedio',
+      element:<Intermedio/>
     }
   ]);
