@@ -8,6 +8,7 @@ import useJuegos from "../hooks/JuegosLoad"
 import GameCard from "../Components/GameCard"
 
 
+
 export default function Sign(){
 
     const navigate= useNavigate()

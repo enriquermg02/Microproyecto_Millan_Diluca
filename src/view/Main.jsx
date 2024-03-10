@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
 import { useNavigate } from "react-router-dom"
+import styles from './Main.module.css'
 
 export default function Main(){
 
@@ -29,17 +30,12 @@ export default function Main(){
     // ,[user,navigate])
 
     return (
-    <div>
-
-        
-
-        <button onClick={ redirectSignIn}>SIGN</button>
-        <button onClick={redirectLognIn}>LOGIN</button>
-        
-        
-
-
-
-
-    </div>)
+        <div className={styles.conteiner}>
+        <h1>Bienvenido mi pana! </h1>
+            <div className={styles.inicio}>
+                <button onClick={ redirectSignIn} className={styles.sign }>SIGN</button>
+                <button onClick={redirectLognIn} className={styles.login}>LOGIN</button>
+            </div>
+        </div>
+        )
 }

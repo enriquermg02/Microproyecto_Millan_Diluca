@@ -8,6 +8,7 @@ import GameCard from "../Components/GameCard"
 import GroupCard from "../Components/GroupCard"
 
 
+
 export default function AppPage(){
     const navigate= useNavigate()
     const user= useUser()
@@ -25,22 +26,19 @@ export default function AppPage(){
     ,[user,navigate])
     
     return (
-    <div>
+            <div>
+                <button onClick={singOut } >
+                    SING OUT
+                </button>
+                <button onClick={()=>{console.log(user)}}>
+                    A VER
+                </button>
+                <Link to="/login">Dale aqui para ir a login</Link>  
+                <Link to="/Perfil">Dale aqui para ir a Perfil</Link> 
 
-        
-        <button onClick={singOut 
-        }>SING OUT</button>
-        <button onClick={()=>{console.log(user) }
-        }>A VER</button>
-        <Link to="/login">Dale aqui para ir a login</Link>  
-        <Link to="/Perfil">Dale aqui para ir a Perfil</Link> 
-
-        {grupos?.map((prop) => (
-            <GroupCard key={prop.id} id={prop.id} nombre={prop.data.nombre} descripcion={prop.data.descripcion} videojuegos={prop.data.videojuegos}></GroupCard>
-        ))}
-
-
-        
-
-    </div>)
+                {grupos?.map((prop) => (
+                    <GroupCard key={prop.id} id={prop.id} nombre={prop.data.nombre} descripcion={prop.data.descripcion} videojuegos={prop.data.videojuegos}></GroupCard>
+                ))}
+            </div>
+    )
 }
