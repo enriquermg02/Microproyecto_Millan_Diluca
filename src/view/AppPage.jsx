@@ -10,11 +10,25 @@ import styles from './AppPage.module.css'
 
 
 export default function AppPage(){
+
+    function handleButtonBusqueda(){
+
+
+
+    }
     const navigate= useNavigate()
     const user= useUser()
     
     
     const grupos=useGrupos()
+
+
+    
+    function handleButtonBusqueda(){
+
+        navigate("/busqueda")
+        
+    }
 
     useEffect(()=>{
         if(!user){
@@ -35,6 +49,7 @@ export default function AppPage(){
                 </button>
                 <Link to="/login" className={styles.link}>Dale aqui para ir a login</Link>  
                 <Link to="/Perfil" className={styles.link}>Dale aqui para ir a Perfil</Link> 
+                <button></button>
 
                 {grupos?.map((prop) => (
                     <div key={prop.id} className={styles.card}>

@@ -9,6 +9,7 @@ import AppPage from "./view/AppPage"
 import Perfil from "./view/Perfil"
 import SinginGoogle from './view/SinginGoogle';
 import Intermedio from "./view/Intermedio"
+import Buscador from "./view/Buscador"
 
 
 
@@ -45,5 +46,10 @@ export const router = createBrowserRouter([
     {
       path:'/Intermedio',
       element:<Intermedio/>
+    },
+    {
+      path:'/busqueda',
+      element:<Buscador/>
+
     }
   ]);

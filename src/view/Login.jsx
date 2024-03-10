@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import style from './Login.module.css'
 
 
-export default function Login(){
+export default function Buscador(){
     const navigate= useNavigate()
     const user= useUser()
     useEffect(()=>{
