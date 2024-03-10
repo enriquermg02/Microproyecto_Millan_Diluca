@@ -62,7 +62,7 @@ export async function getUsuario(correo){
     const ususariosCollection=collection(db,"Usuarios")
     const ususarioQuery= query(ususariosCollection,where("email","==" , correo))
     const ususario = await getDocs(ususarioQuery)
-    
+
     const us= ususario.docs[0].data();
     
 
@@ -93,6 +93,34 @@ export async function cambiarInfoUsuario(correo,Nombref,Apellidof){
     const email=us.email
     const password=us.password
     const grupos=us.grupos
+    
+
+    const data={Nombre,Apellido,UserName,email,grupos,password}
+
+    
+
+    const ref = doc(ususariosCollection,correo);
+    
+    await setDoc(ref,data);
+
+
+    
+}
+
+export async function cambiarGrupo(correo,grupo){
+
+    const ususariosCollection=collection(db,"Usuarios")
+    const ususarioQuery= query(ususariosCollection,where("email","==" , correo))
+    const ususario = await getDocs(ususarioQuery)
+    
+    const us= ususario.docs[0].data();
+    
+    const Nombre=us.Nombre
+    const Apellido=us.Apellido
+    const UserName=us.UserName
+    const email=us.email
+    const password=us.password
+    const grupos=grupo
     
 
     const data={Nombre,Apellido,UserName,email,grupos,password}

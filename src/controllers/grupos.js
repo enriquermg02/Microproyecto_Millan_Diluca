@@ -43,9 +43,9 @@ export async function getGrupo(nombre){
 
 export async function buscarGrupo(numero){
 
-  console.log(typeof(JSON.stringify(numero)))
+  
     
-    const grupoDoc= await getDoc(doc(db,"Clubes",JSON.stringify(numero)))
+    const grupoDoc= await getDoc(doc(db,"Clubes",`${numero}`))
 
     const grupo=grupoDoc.data()
     

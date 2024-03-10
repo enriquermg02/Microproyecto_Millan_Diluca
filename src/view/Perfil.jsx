@@ -16,6 +16,7 @@ export default function Perfil(){
     const [Apellido,setApellido]= useState("")
     const[lol,setLol]=useState(null)
     
+    
     const [game,setGame] = useState("")
 
     useEffect(()=>{
@@ -51,26 +52,31 @@ export default function Perfil(){
 
        Nombre <input value={Nombre} onChange={e =>  setNombre(e.target.value) } ></input>
 
-       <div>{currentuser ? (<div>{currentuser.email}</div>):("..cargando")}
+       <div>{currentuser ? (<div>{currentuser.email}</div>) : ("..cargando")}
        
        
-       
+      
        </div>
 
         Apellido<input value={Apellido} onChange={e =>  setApellido(e.target.value) }></input>
         
         Juego<input value={game} onChange={e =>  setGame(e.target.value) }></input>
 
+        <button onClick={()=>{cambiarInfoUsuario(currentuser.email,Nombre,Apellido)}}>Cambiar</button>
+
+
         <div>
         {lol ? (
             
-            lol.map((prop) => (
+            lol.map((propa) => (
 
-                <QuitGroup key={prop} id={prop}></QuitGroup>
+                 <QuitGroup key={propa} id={propa} grupos={propa}></QuitGroup>
+                
                 
             ))
+            
 
-        ):("Cargando")
+        ): ("Cargando")
         
         
         }
@@ -78,9 +84,9 @@ export default function Perfil(){
         </div>
         
 
-        <button onClick={()=>{cambiarInfoUsuario(currentuser.email,Nombre,Apellido)}}>Cambiar</button>
+        
 
-
+        <button onClick={()=>{console.log(lol)}}>uwu</button>
         
 
 
