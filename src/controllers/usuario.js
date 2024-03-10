@@ -68,8 +68,9 @@ export async function getUsuario(correo){
 
     const Nombre=us.Nombre
     const Apellido=us.Apellido
+    const grupos=us.grupos
     
-    const data={Nombre,Apellido}
+    const data={Nombre,Apellido,grupos}
     
 
     return data
@@ -99,8 +100,7 @@ export async function cambiarInfoUsuario(correo,Nombref,Apellidof){
     
 
     const ref = doc(ususariosCollection,correo);
-    console.log(correo)
-    console.log(data)
+    
     await setDoc(ref,data);
 
 

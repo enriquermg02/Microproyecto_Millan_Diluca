@@ -5,11 +5,12 @@ import GameCard from "./GameCard"
 import { useEffect, useState } from "react"
 import {buscarJuego} from "../controllers/juegos"
 
-export default function GroupCard({nombre,descripcion,videojuegos}){
+export default function GroupCard({id,nombre,descripcion,videojuegos}){
     
     const user= useUser()
+    //esto es diferente, hay que tener ojo con esto
     const [Juegos,setJuegos]=useState([])
-
+    
 
     const uwu = async () => {
         // Utiliza Promise.all para esperar que todas las Promesas se resuelvan
@@ -39,10 +40,10 @@ export default function GroupCard({nombre,descripcion,videojuegos}){
     return (
     <div>
 
-        
+        <div>{id}</div>   
         <div>{nombre}</div>
         <div>{descripcion}</div>
-
+        
 
         <div>
         {Juegos?.map(({  titulo, descripcion, genero }) => (
@@ -51,7 +52,7 @@ export default function GroupCard({nombre,descripcion,videojuegos}){
 
         </div>
 
-        <button onClick={()=>{buscarUsuario(user.email,nombre)}}>Subscribe</button>
+        <button onClick={()=>{buscarUsuario(user.email,id)}}>Subscribe</button>
 
     </div>)
 }

@@ -4,6 +4,7 @@ import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../contr
 import {useUser} from "../context/user"
 import { useNavigate } from "react-router-dom"
 import {getUsuario,cambiarInfoUsuario} from "../controllers/usuario"
+import  QuitGroup  from "../Components/QuitGroup"
 
 
 export default function Perfil(){
@@ -13,7 +14,8 @@ export default function Perfil(){
     //const user=getUsuario(currentuser.email)
     const [Nombre,setNombre]= useState("")
     const [Apellido,setApellido]= useState("")
-
+    const[lol,setLol]=useState(null)
+    
     const [game,setGame] = useState("")
 
     useEffect(()=>{
@@ -21,9 +23,11 @@ export default function Perfil(){
 
             const uwu=async ()=>{
                 console.log("Aparecio")
+                
                 const usuario= await getUsuario(currentuser.email)
                 setNombre(usuario.Nombre)
                 setApellido(usuario.Apellido)
+                setLol(usuario.grupos)
 
             }
             
@@ -56,6 +60,23 @@ export default function Perfil(){
         Apellido<input value={Apellido} onChange={e =>  setApellido(e.target.value) }></input>
         
         Juego<input value={game} onChange={e =>  setGame(e.target.value) }></input>
+
+        <div>
+        {lol ? (
+            
+            lol.map((prop) => (
+
+                <QuitGroup key={prop} id={prop}></QuitGroup>
+                
+            ))
+
+        ):("Cargando")
+        
+        
+        }
+
+        </div>
+        
 
         <button onClick={()=>{cambiarInfoUsuario(currentuser.email,Nombre,Apellido)}}>Cambiar</button>
 

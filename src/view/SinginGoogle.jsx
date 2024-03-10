@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom"
 
 const SinginGoogle = () => {
   const juegos = useJuegos()
+  
   const user= useUser()
   const navigate= useNavigate()
     
@@ -34,7 +35,7 @@ const SinginGoogle = () => {
     const user = await singInGoogle()
     
 
-    console.log(user)
+    
 }
 
 useEffect(()=>{
@@ -48,6 +49,9 @@ useEffect(()=>{
     const crear=async ()=>{await createUser(NombreApellido.nombre,NombreApellido.apellido,username,user.email,"password",juego)}
                             
     crear()
+    navigate("/AppPage")
+
+
   }
 
 }
@@ -60,12 +64,28 @@ useEffect(()=>{
 
       <input type="text" value={usernameG} onChange={e =>  setUsernameG(e.target.value)}/>
 
-      {juegos?.map(({ id, titulo}) => (
-            <GameCard key={titulo + id} id={id} titulo={titulo} juego = {juegoG} setJuego = {setJuegoG} />
-        ))}
+      <div>{juegos ? 
+
+      (<div>{juegos?.map((prop) => (
+
+            <GameCard key={prop.id} id={prop.id} titulo={prop.data.titulo} juego = {juegoG} setJuego = {setJuegoG} />
+        ))}</div>)
+
+        :("..CARGAnDO")}
+       
+       
+       
+       </div>
+
+
+
+      
         
         
-        <button onClick={()=>{console.log(juegoG)}}>fff</button>
+        <button onClick={()=>{
+          console.log(juegoG)
+          console.log(usernameG)
+        }}>fff</button>
       <button onClick={handleLogingGoogle} disabled = {!juegoG || !usernameG}>Deseas registrarte con Google</button>
 
     </div>

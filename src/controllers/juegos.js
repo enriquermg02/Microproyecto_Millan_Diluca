@@ -3,16 +3,36 @@ import {db} from "../firebase"
 
 
 
-export async function getJuegos(){
+// export async function getJuegos(){
 
-    const groupsCollection=collection(db,"Juegos")
+//     const groupsCollection=collection(db,"Juegos")
+//     //snapshot
+//     const groupsDoc = await getDocs(groupsCollection)
 
-    const groupsDoc = await getDocs(groupsCollection)
-
-    const juegos = groupsDoc.docs.map(doc=> doc.data())
+//     const juegos = groupsDoc.docs.map(doc=> {
+//         //documento
+//         doc.data()
+        
     
-    return juegos
+//     }
+    
+    
+//     )
+    
+//     return juegos
 
+// }
+
+export async function getJuegos() {
+    const groupsCollection = collection(db, "Juegos");
+    const groupsDocs = await getDocs(groupsCollection);
+
+    const juegos = groupsDocs.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+    }));
+
+    return juegos;
 }
 
 

@@ -12,7 +12,7 @@ export default function AppPage(){
     const navigate= useNavigate()
     const user= useUser()
     
-    const juegos=useJuegos()
+    
     const grupos=useGrupos()
 
     useEffect(()=>{
@@ -35,8 +35,8 @@ export default function AppPage(){
         <Link to="/login">Dale aqui para ir a login</Link>  
         <Link to="/Perfil">Dale aqui para ir a Perfil</Link> 
 
-        {grupos?.map(({ id, nombre, descripcion, videojuegos }) => (
-            <GroupCard key={nombre + id} id={id} nombre={nombre} descripcion={descripcion} videojuegos={videojuegos}></GroupCard>
+        {grupos?.map((prop) => (
+            <GroupCard key={prop.id} id={prop.id} nombre={prop.data.nombre} descripcion={prop.data.descripcion} videojuegos={prop.data.videojuegos}></GroupCard>
         ))}
 
 

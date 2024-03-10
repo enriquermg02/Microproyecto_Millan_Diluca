@@ -3,17 +3,32 @@ import {db} from "../firebase"
 
 
 
-export async function getGrupos(){
+// export async function getGrupos(){
 
-    const groupsCollection=collection(db,"Clubes")
+//     const groupsCollection=collection(db,"Clubes")
 
-    const groupsDoc = await getDocs(groupsCollection)
+//     const groupsDoc = await getDocs(groupsCollection)
 
-    const groups = groupsDoc.docs.map(doc=> doc.data())
+//     const groups = groupsDoc.docs.map(doc=> doc.data())
     
-    return groups
+//     return groups
 
+// }
+
+export async function getGrupos() {
+    const groupsCollection=collection(db,"Clubes")
+    const groupsDocs = await getDocs(groupsCollection);
+
+    const grupos = groupsDocs.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+    }));
+
+    return grupos;
 }
+
+
+
 
 export async function getGrupo(nombre){
 
@@ -23,4 +38,19 @@ export async function getGrupo(nombre){
 
     return grupo
 
+}
+
+
+export async function buscarGrupo(numero){
+
+  console.log(typeof(JSON.stringify(numero)))
+    
+    const grupoDoc= await getDoc(doc(db,"Clubes",JSON.stringify(numero)))
+
+    const grupo=grupoDoc.data()
+    
+    
+
+    return grupo
+  
 }
