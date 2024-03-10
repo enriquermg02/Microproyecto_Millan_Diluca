@@ -82,10 +82,10 @@ const handleMostrarOcultarJuegos = () => {
         }
       
  
-        {/* <button onClick={()=>{
+        <button onClick={()=>{
           console.log(juegoG)
           console.log(usernameG)
-        }}>fff</button> */}
+        }}>fff</button>
       <button onClick={handleLogingGoogle} disabled = {!juegoG || !usernameG} className={styles.button}>Haz Click para registrarte</button>
 
     </div>

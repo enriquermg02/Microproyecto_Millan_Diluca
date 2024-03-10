@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
 import { useNavigate } from "react-router-dom"
+import style from './Login.module.css'
 
 
 export default function Login(){
@@ -39,18 +40,11 @@ export default function Login(){
 
 
     return (
-    <div>
+    <div className={style.conteiner}>
 
-        
-
-
-        <div style={{
-        display: "flex",
-        flexDirection:"column"
-
-      }}>
-        <input value={email} onChange={e =>  setEmail(e.target.value) }></input>
-
+        <h1 className={style.titulo}>Email</h1>
+        <input value={email} onChange={e =>  setEmail(e.target.value) } className={style.email}></input>
+        <h1 className={style.titulo}>Password</h1>
         <input value={password} onChange={e =>  setPassword(e.target.value) }></input>
 
         <button onClick={ handleLogin}>LOGIN</button>
@@ -59,8 +53,6 @@ export default function Login(){
         <button onClick={()=>{console.log(user) }
         }>A VER</button>
        
-        </div>
-    
 
 
 

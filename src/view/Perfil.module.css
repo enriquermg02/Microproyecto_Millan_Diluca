@@ -1,0 +1,30 @@
+:root{
+    --negro: #0D0D0D;
+    --morado:#692073;
+    --verde:#2CBFB1;
+    --naranja:#F27F3D;
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo{
+    color: var(--naranja);
+
+}
+
+.buton{
+    background-color: var(--verde);
+    color: var(--naranja);
+    font-weight: 700;
+    width: 200px;
+    margin: 10px 0 10px 0;
+}
+
+.grupos{
+    color: var(--naranja);
+}

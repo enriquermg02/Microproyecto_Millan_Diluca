@@ -1,0 +1,29 @@
+:root{
+    --negro: #0D0D0D;
+    --morado:#692073;
+    --verde:#2CBFB1;
+    --naranja:#F27F3D;
+}
+
+
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--naranja);
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--verde);
+    color: var(--naranja);
+    margin: 10px;
+}

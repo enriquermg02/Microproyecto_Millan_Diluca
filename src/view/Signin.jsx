@@ -79,7 +79,6 @@ export default function Sign(){
             <button onClick={handleMostrarOcultarJuegos} className={styles.botonOcultarMostrar}>
                     {mostrarJuegos ? 'Ocultar juegos' : 'Haz click para elegir tu juego favorito'}
             </button>
-            {/* <div>{currentuser ? (<div>{currentuser.email}</div>):("..cargando")} */}
             {mostrarJuegos && (
                 <div className={styles.games}>
                     {juegos ? (
@@ -96,7 +95,10 @@ export default function Sign(){
                 </div>
             )
         }
-
+            <button onClick={()=>{
+                console.log(juego)
+                console.log(username)
+                }}>fff</button>
             <button onClick={ handleSignin} className={styles.sign}>SIGN</button>
 
         </div>

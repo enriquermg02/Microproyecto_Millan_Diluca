@@ -6,7 +6,7 @@ import {useUser} from "../context/user"
 import { useNavigate,Link } from "react-router-dom"
 import GameCard from "../Components/GameCard"
 import GroupCard from "../Components/GroupCard"
-
+import styles from './AppPage.module.css'
 
 
 export default function AppPage(){
@@ -26,18 +26,20 @@ export default function AppPage(){
     ,[user,navigate])
     
     return (
-            <div>
-                <button onClick={singOut } >
+            <div className={styles.conteiner}>
+                <button onClick={singOut} >
                     SING OUT
                 </button>
                 <button onClick={()=>{console.log(user)}}>
                     A VER
                 </button>
-                <Link to="/login">Dale aqui para ir a login</Link>  
-                <Link to="/Perfil">Dale aqui para ir a Perfil</Link> 
+                <Link to="/login" className={styles.link}>Dale aqui para ir a login</Link>  
+                <Link to="/Perfil" className={styles.link}>Dale aqui para ir a Perfil</Link> 
 
                 {grupos?.map((prop) => (
-                    <GroupCard key={prop.id} id={prop.id} nombre={prop.data.nombre} descripcion={prop.data.descripcion} videojuegos={prop.data.videojuegos}></GroupCard>
+                    <div key={prop.id} className={styles.card}>
+                        <GroupCard key={prop.id} id={prop.id} nombre={prop.data.nombre} descripcion={prop.data.descripcion} videojuegos={prop.data.videojuegos}/>
+                    </div>
                 ))}
             </div>
     )

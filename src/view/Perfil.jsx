@@ -5,6 +5,7 @@ import {useUser} from "../context/user"
 import { useNavigate } from "react-router-dom"
 import {getUsuario,cambiarInfoUsuario} from "../controllers/usuario"
 import  QuitGroup  from "../Components/QuitGroup"
+import styles from './Perfil.module.css'
 
 
 export default function Perfil(){
@@ -44,52 +45,47 @@ export default function Perfil(){
     
 
     return (
-    <div style={{
-        display: "flex",
-        flexDirection:"column"}}>
+        <div className={styles.conteiner}>
+            <h1 className={styles.titulo}>Nombre</h1> 
+            <input value={Nombre} onChange={e =>  setNombre(e.target.value) } ></input>
 
-        
-
-       Nombre <input value={Nombre} onChange={e =>  setNombre(e.target.value) } ></input>
-
-       <div>{currentuser ? (<div>{currentuser.email}</div>) : ("..cargando")}
-       
-       
-      
-       </div>
-
-        Apellido<input value={Apellido} onChange={e =>  setApellido(e.target.value) }></input>
-        
-        Juego<input value={game} onChange={e =>  setGame(e.target.value) }></input>
-
-        <button onClick={()=>{cambiarInfoUsuario(currentuser.email,Nombre,Apellido)}}>Cambiar</button>
+            <div>{currentuser ? (<div>{currentuser.email}</div>) : ("..cargando")}</div>
 
 
-        <div>
-        {lol ? (
+            <h1 className={styles.titulo}>Apellido</h1>
+            <input value={Apellido} onChange={e =>  setApellido(e.target.value) }></input>
+                            
+            <h1 className={styles.titulo}>Juego</h1>
+            <input value={game} onChange={e =>  setGame(e.target.value) }></input>
+
+            <button onClick={()=>{cambiarInfoUsuario(currentuser.email,Nombre,Apellido)}} className={styles.buton}>Cambiar</button>
+
+
+            <div className={styles.grupos}>
+            {lol ? (
+                                
+                lol.map((propa) => (
+
+                <QuitGroup key={propa} id={propa} grupos={propa}></QuitGroup>
+                                    
+                                    
+                ))
+                                
+
+                ): ("Cargando")}
+
+            </div>
+            <button onClick={()=>{console.log(lol)}}>uwu</button>
+ 
+
+
+
             
-            lol.map((propa) => (
-
-                 <QuitGroup key={propa} id={propa} grupos={propa}></QuitGroup>
-                
-                
-            ))
-            
-
-        ): ("Cargando")
-        
-        
-        }
-
         </div>
         
+        )
 
         
 
-        <button onClick={()=>{console.log(lol)}}>uwu</button>
-        
-
-
-
-    </div>)
+       
 }
