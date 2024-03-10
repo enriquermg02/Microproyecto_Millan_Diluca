@@ -80,7 +80,7 @@ export default function Sign(){
                     {mostrarJuegos ? 'Ocultar juegos' : 'Haz click para elegir tu juego favorito'}
             </button>
             {mostrarJuegos && (
-                <div className={styles.games}>
+                <div className={styles.games }>
                     {juegos ? (
                         <div className={styles.color}>
                             {juegos?.map((prop) => (

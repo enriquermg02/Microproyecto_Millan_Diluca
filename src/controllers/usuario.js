@@ -6,6 +6,7 @@ import {db} from "../firebase"
 
 export async function createUser(Nombre,Apellido,UserName,email,password,juego){
     //const id = generateId()
+    console.log(typeof(email))
     const userCollection=doc(collection(db,"Usuarios"),email)
     const usuario={Nombre,Apellido,UserName,email,password,grupos:[],juego}
     await setDoc(userCollection,usuario)
@@ -59,18 +60,27 @@ export async function buscarUsuario(correo,nombreg){
 
 export async function getUsuario(correo){
 
+    //console.log(typeof(correo))
     const ususariosCollection=collection(db,"Usuarios")
+    
     const ususarioQuery= query(ususariosCollection,where("email","==" , correo))
+    
+   
     const ususario = await getDocs(ususarioQuery)
-
+    
     const us= ususario.docs[0].data();
     
+    
+
 
     const Nombre=us.Nombre
     const Apellido=us.Apellido
     const grupos=us.grupos
+    const juego=us.juego
+
     
-    const data={Nombre,Apellido,grupos}
+    const data={Nombre,Apellido,grupos,juego}
+    console.log(data)
     
 
     return data
@@ -79,7 +89,16 @@ export async function getUsuario(correo){
 }
 
 
-export async function cambiarInfoUsuario(correo,Nombref,Apellidof){
+async function getUser(email){
+    const groupsCollection=collection(db,"Clubes")
+    const grupoQuery= query(groupsCollection,where("nombre","==" , nombre))
+    const grupo = await getDoc(grupoQuery)
+
+    return grupo
+}
+
+
+export async function cambiarInfoUsuario(correo,Nombref,Apellidof,juegof){
 
     const ususariosCollection=collection(db,"Usuarios")
     const ususarioQuery= query(ususariosCollection,where("email","==" , correo))
@@ -93,9 +112,10 @@ export async function cambiarInfoUsuario(correo,Nombref,Apellidof){
     const email=us.email
     const password=us.password
     const grupos=us.grupos
+    const juego=juegof
     
 
-    const data={Nombre,Apellido,UserName,email,grupos,password}
+    const data={Nombre,Apellido,UserName,email,grupos,password,juego}
 
     
 

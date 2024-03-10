@@ -49,7 +49,7 @@ export default function AppPage(){
                 </button>
                 <Link to="/login" className={styles.link}>Dale aqui para ir a login</Link>  
                 <Link to="/Perfil" className={styles.link}>Dale aqui para ir a Perfil</Link> 
-                <button></button>
+                <button onClick={handleButtonBusqueda}>BUSQUEDA</button>
 
                 {grupos?.map((prop) => (
                     <div key={prop.id} className={styles.card}>

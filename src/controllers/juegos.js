@@ -1,5 +1,6 @@
-import { collection,getDoc,getDocs,doc } from "firebase/firestore";
+import { collection,getDoc,getDocs,doc,query,where } from "firebase/firestore";
 import {db} from "../firebase"
+
 
 
 
@@ -46,4 +47,16 @@ export async function buscarJuego(numero){
 
     return juego
   
+}
+
+export async function getJuego(titulo){
+
+    const ususariosCollection=collection(db,"Juegos")
+    const ususarioQuery= query(ususariosCollection,where("titulo","==" , titulo))
+    const ususario = await getDocs(ususarioQuery)
+    
+    const us= ususario.docs[0].data();
+
+    return us
+
 }

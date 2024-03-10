@@ -54,10 +54,11 @@
 
 .games{
     overflow-y:auto;
-    max-height: 300px;
+    max-height: 10rem;
 }
 
 .gameCard{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,53 +68,5 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 15px;
     color: var(--naranja);
-}
-
-
-@media (max-width: 767px) {
-    .conteiner {
-        height: auto;
-    }
-    .titulo {
-        margin-bottom: 20px; 
-        font-size: 30px;
-    }
-    .sign{
-        width: 120px;
-    }
-}
-
-@media (min-width: 768px) {
-    .conteiner {
-        height: 100vh;
-    }
-    .sign{
-        width: 220px;
-    }
-    .input{
-        width: 300px;
-        height: 30px;
-    }
-    .gameCard{
-        margin-top: 5px;
-        width: 300px;
-        height: 40px;
-    }
-
-    .button{
-        margin-top: 10px;
-        width: 300px;
-        
-    }
-
-    .botonOcultarMostrar{
-        margin: 10px 0 10px 0 ;
-    }
-}
-
-@media (min-width:1024px){
-    .sign:hover{
-        filter: drop-shadow(0 0 4em #7fff00);
-    }
 }
 
