@@ -31,7 +31,7 @@ export default function Main(){
 
     return (
         <div className={styles.conteiner}>
-        <h1>Bienvenido mi pana! </h1>
+        <h1 className={styles.titulo}>Bienvenido mi pana! ¿Deseas registrarte o Logearte? </h1>
             <div className={styles.inicio}>
                 <button onClick={ redirectSignIn} className={styles.sign }>SIGN</button>
                 <button onClick={redirectLognIn} className={styles.login}>LOGIN</button>

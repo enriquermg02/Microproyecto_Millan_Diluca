@@ -6,7 +6,7 @@ import {createUser} from "../controllers/usuario"
 import MenuDesplegable from "../Components/MenuDesplegable"
 import useJuegos from "../hooks/JuegosLoad"
 import GameCard from "../Components/GameCard"
-
+import styles from './Signin.module.css'
 
 
 export default function Sign(){
@@ -54,39 +54,28 @@ export default function Sign(){
     ,[user,navigate])
 
     return (
-    <div>
+        <div>
 
-        <div style={{
-        display: "flex",
-        flexDirection:"column"
+            <h1>Nombre</h1>
+            <input value={name} onChange={e =>  setName(e.target.value) }></input>
+            <h1>Apellido</h1>
+            <input value={lastName} onChange={e =>  setLastName(e.target.value) }></input>
+            <h1>UserName</h1>
+            <input value={username} onChange={e =>  setUsername(e.target.value) }></input>
+            <h1>Email</h1>
+            <input value={email} onChange={e =>  setEmail(e.target.value) }></input>
+            <h1>Password</h1>
+            <input value={password} onChange={e =>  setPassword(e.target.value) }></input>
+            <MenuDesplegable/>
+            {/* <div>{currentuser ? (<div>{currentuser.email}</div>):("..cargando")} */}
+            {juegos?.map(({ id, titulo}) => (
+                <GameCard key={titulo + id} id={id} titulo={titulo} juego = {juego} setJuego = {setJuego} />
+            ))}
 
-      }}>
-        Nombre
-        <input value={name} onChange={e =>  setName(e.target.value) }></input>
-        Apellido
-        <input value={lastName} onChange={e =>  setLastName(e.target.value) }></input>
-        UserName
-        <input value={username} onChange={e =>  setUsername(e.target.value) }></input>
-        Email
-        <input value={email} onChange={e =>  setEmail(e.target.value) }></input>
-        Password
-        <input value={password} onChange={e =>  setPassword(e.target.value) }></input>
-        <MenuDesplegable/>
-        {/* <div>{currentuser ? (<div>{currentuser.email}</div>):("..cargando")} */}
-        {juegos?.map(({ id, titulo}) => (
-            <GameCard key={titulo + id} id={id} titulo={titulo} juego = {juego} setJuego = {setJuego} />
-        ))}
-
-        <button onClick={ handleSignin}>SIGN</button>
-        
-        <button onClick={handleLogingGoogle} disabled = {!juego || !username}>Deseas registrarte con Google</button>
+            <button onClick={ handleSignin}>SIGN</button>
+            
+            <button onClick={handleLogingGoogle} disabled = {!juego || !username}>Deseas registrarte con Google</button>
 
         </div>
-    
-
-
-
-
-
-    </div>)
+    )
 }

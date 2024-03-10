@@ -1,6 +1,7 @@
 import useJuegos from "../hooks/JuegosLoad"
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import { useNavigate } from "react-router-dom"
+import styles from './Intermedio.module.css'
 
 const Intermedio = () => {
 
@@ -17,11 +18,15 @@ const Intermedio = () => {
     }
 
   return (
-    <div>
-      
-      <button onClick={ redirectSignIn}>Normal</button>
-        <button onClick={redirectSignGoogle}>Goolge</button>
+    <div className={styles.conteiner}>
+      <h1 className={styles.titulo}>¿Registrarte normal o con Google?</h1>
+    
+      <div className={styles.registro}>
+        
+        <button onClick={ redirectSignIn} className={styles.Normal}>Normal</button>
+        <button onClick={redirectSignGoogle} className={styles.Google}>Google</button>
 
+      </div>
     </div>
   )
 }
