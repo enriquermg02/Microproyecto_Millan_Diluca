@@ -66,7 +66,7 @@
 
 @media (min-width:1024px){
     .Normal:hover,.Google:hover{
-        background-color: #157680;
+        filter: drop-shadow(0 0 4em #157680);
     }
 }
 

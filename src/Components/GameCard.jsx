@@ -8,7 +8,7 @@ export default function GameCard({titulo,descripcion,genero,juego,setJuego}){
     }
 
     return (
-    <div style={{boxShadow: "10px 5px 5px black"}} onClick={(ev)=> {handleClick(ev.currentTarget.textContent)}}>
+    <div  onClick={(ev)=> {handleClick(ev.currentTarget.textContent)}}>
 
         <div>{titulo}</div>
         <div>{descripcion}</div>

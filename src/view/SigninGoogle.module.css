@@ -1,0 +1,84 @@
+:root{
+    --negro: #0D0D0D;
+    --morado:#692073;
+    --verde:#2CBFB1;
+    --naranja:#F27F3D;
+}
+
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+}
+
+.titulo{
+    color:var(--naranja) ;
+}
+
+.cargando{
+    color: var(--naranja);
+}
+
+.input{
+    width: 200px;
+}
+
+.color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gameCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--verde);
+    border-radius: 5px;
+    font-weight: 700;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--naranja);
+}
+
+.button {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.botonOcultarMostrar{
+    background-color: var(--verde);
+    color: var(--naranja);
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.games{
+    overflow-y:auto;
+    max-height: 300px;
+}
+
+
+@media (min-width:768px){
+    .gameCard{
+        margin-top: 5px;
+        width: 300px;
+        height: 40px;
+    }
+
+    .button{
+        margin-top: 10px;
+        width: 300px;
+        
+    }
+
+    .botonOcultarMostrar{
+        margin: 10px 0 10px 0 ;
+    }
+}
+

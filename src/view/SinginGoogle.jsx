@@ -5,9 +5,7 @@ import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../contr
 import GameCard from "../Components/GameCard"
 import {createUser} from "../controllers/usuario"
 import { useNavigate } from "react-router-dom"
-
-
-
+import styles from './SigninGoogle.module.css'
 
 const SinginGoogle = () => {
   const juegos = useJuegos()
@@ -17,6 +15,7 @@ const SinginGoogle = () => {
     
   const [usernameG,setUsernameG]=useState("")
   const [juegoG,setJuegoG] = useState("")
+  const [mostrarJuegos,setMostrarJuegos]= useState(false)
   // const[nombreG,setNombreG]=useState("")
   // const[lastNameG,setlastNameG]=useState("")
     
@@ -28,14 +27,9 @@ const SinginGoogle = () => {
     return { nombre, apellido };
   }
 
-
-
-
   const handleLogingGoogle= async (e)=> {
     const user = await singInGoogle()
-    
-
-    
+   
 }
 
 useEffect(()=>{
@@ -57,36 +51,42 @@ useEffect(()=>{
 }
 ,[user,navigate])
 
+const handleMostrarOcultarJuegos = () => {
+  setMostrarJuegos(!mostrarJuegos)
+}
+
 
   return (
-    <div style={{display:"flex",flexDirection:"column"}}>
-      UserName
+    <div className={styles.conteiner}>
+      <h1 className={styles.titulo}>UserName</h1>
+      <input type="text" value={usernameG} onChange={e =>  setUsernameG(e.target.value)} className={styles.input}/>
+      <button onClick={handleMostrarOcultarJuegos} className={styles.botonOcultarMostrar}>
+        {mostrarJuegos ? 'Ocultar juegos' : 'Haz click para elegir tu juego favorito'}
+      </button>
 
-      <input type="text" value={usernameG} onChange={e =>  setUsernameG(e.target.value)}/>
-
-      <div>{juegos ? 
-
-      (<div>{juegos?.map((prop) => (
-
-            <GameCard key={prop.id} id={prop.id} titulo={prop.data.titulo} juego = {juegoG} setJuego = {setJuegoG} />
-        ))}</div>)
-
-        :("..CARGAnDO")}
-       
-       
-       
-       </div>
-
-
-
+      {mostrarJuegos && (
+                <div className={styles.games}>
+                    {juegos ? (
+                        <div className={styles.color}>
+                            {juegos?.map((prop) => (
+                                <button className={styles.gameCard}>
+                                    <GameCard key={prop.id} id={prop.id} titulo={prop.data.titulo} juego={juegoG} setJuego={setJuegoG} />
+                                </button>
+                            ))}
+                        </div>
+                    ) : (
+                        <h2 className={styles.cargando}>Cargando...</h2>
+                    )}
+                </div>
+            )
+        }
       
-        
-        
-        <button onClick={()=>{
+ 
+        {/* <button onClick={()=>{
           console.log(juegoG)
           console.log(usernameG)
-        }}>fff</button>
-      <button onClick={handleLogingGoogle} disabled = {!juegoG || !usernameG}>Deseas registrarte con Google</button>
+        }}>fff</button> */}
+      <button onClick={handleLogingGoogle} disabled = {!juegoG || !usernameG} className={styles.button}>Haz Click para registrarte</button>
 
     </div>
   )

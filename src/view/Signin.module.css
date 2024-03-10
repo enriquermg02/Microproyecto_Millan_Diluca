@@ -1,0 +1,119 @@
+:root {
+    --negro: #0D0D0D;
+    --morado: #692073;
+    --verde: #2CBFB1;
+    --naranja: #F27F3D;
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    border-radius: 5px;
+}
+
+.titulo{
+    color: var(--naranja);
+}
+
+.sign{
+    margin-top: 50px;
+    background-color: var(--verde);
+    color: var(--naranja);
+    font-weight: 700;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.botonOcultarMostrar{
+    background-color: var(--verde);
+    color: var(--naranja);
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.games{
+    overflow-y:auto;
+    max-height: 300px;
+}
+
+.gameCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--verde);
+    border-radius: 5px;
+    font-weight: 700;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--naranja);
+}
+
+
+@media (max-width: 767px) {
+    .conteiner {
+        height: auto;
+    }
+    .titulo {
+        margin-bottom: 20px; 
+        font-size: 30px;
+    }
+    .sign{
+        width: 120px;
+    }
+}
+
+@media (min-width: 768px) {
+    .conteiner {
+        height: 100vh;
+    }
+    .sign{
+        width: 220px;
+    }
+    .input{
+        width: 300px;
+        height: 30px;
+    }
+    .gameCard{
+        margin-top: 5px;
+        width: 300px;
+        height: 40px;
+    }
+
+    .button{
+        margin-top: 10px;
+        width: 300px;
+        
+    }
+
+    .botonOcultarMostrar{
+        margin: 10px 0 10px 0 ;
+    }
+}
+
+@media (min-width:1024px){
+    .sign:hover{
+        filter: drop-shadow(0 0 4em #7fff00);
+    }
+}
+

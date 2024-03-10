@@ -14,7 +14,6 @@ export default function Sign(){
     const navigate= useNavigate()
     const user= useUser()
     const juegos = useJuegos()
-    
 
     const [name,setName]=useState("")
     const [lastName,setLastName]=useState("")
@@ -22,6 +21,7 @@ export default function Sign(){
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [juego,setJuego] = useState("")
+    const [mostrarJuegos,setMostrarJuegos]= useState(false)
 
 
     const handleSignin= async (e)=> {
@@ -53,28 +53,51 @@ export default function Sign(){
     }
     ,[user,navigate])
 
+
+    const handleMostrarOcultarJuegos = () => {
+        setMostrarJuegos(!mostrarJuegos)
+      }
+
     return (
-        <div>
+        <div className={styles.conteiner}>
 
-            <h1>Nombre</h1>
-            <input value={name} onChange={e =>  setName(e.target.value) }></input>
-            <h1>Apellido</h1>
-            <input value={lastName} onChange={e =>  setLastName(e.target.value) }></input>
-            <h1>UserName</h1>
-            <input value={username} onChange={e =>  setUsername(e.target.value) }></input>
-            <h1>Email</h1>
-            <input value={email} onChange={e =>  setEmail(e.target.value) }></input>
-            <h1>Password</h1>
-            <input value={password} onChange={e =>  setPassword(e.target.value) }></input>
-            <MenuDesplegable/>
+            <h1 className={styles.titulo}>Nombre</h1>
+            <input value={name} onChange={e =>  setName(e.target.value)} className={styles.input}></input>
+
+            <h1 className={styles.titulo}>Apellido</h1>
+            <input value={lastName} onChange={e =>  setLastName(e.target.value)} className={styles.input}></input>
+
+            <h1 className={styles.titulo}>UserName</h1>
+            <input value={username} onChange={e =>  setUsername(e.target.value)} className={styles.input}></input>
+
+            <h1 className={styles.titulo}>Email</h1>
+            <input value={email} onChange={e =>  setEmail(e.target.value)} className={styles.input}></input>
+
+            <h1 className={styles.titulo}>Password</h1>
+            <input value={password} onChange={e =>  setPassword(e.target.value)} className={styles.input}></input>
+
+            <button onClick={handleMostrarOcultarJuegos} className={styles.botonOcultarMostrar}>
+                    {mostrarJuegos ? 'Ocultar juegos' : 'Haz click para elegir tu juego favorito'}
+            </button>
             {/* <div>{currentuser ? (<div>{currentuser.email}</div>):("..cargando")} */}
-            {juegos?.map(({ id, titulo}) => (
-                <GameCard key={titulo + id} id={id} titulo={titulo} juego = {juego} setJuego = {setJuego} />
-            ))}
+            {mostrarJuegos && (
+                <div className={styles.games}>
+                    {juegos ? (
+                        <div className={styles.color}>
+                            {juegos?.map((prop) => (
+                                <button className={styles.gameCard} key={prop.id}>
+                                    <GameCard key={prop.id} id={prop.id} titulo={prop.data.titulo} juego={juego} setJuego={setJuego} />
+                                </button>
+                            ))}
+                        </div>
+                    ) : (
+                        <h2 className={styles.cargando}>Cargando...</h2>
+                    )}
+                </div>
+            )
+        }
 
-            <button onClick={ handleSignin}>SIGN</button>
-            
-            <button onClick={handleLogingGoogle} disabled = {!juego || !username}>Deseas registrarte con Google</button>
+            <button onClick={ handleSignin} className={styles.sign}>SIGN</button>
 
         </div>
     )
