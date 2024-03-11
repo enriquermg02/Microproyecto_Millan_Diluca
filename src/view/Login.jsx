@@ -3,6 +3,7 @@ import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../contr
 import {useUser} from "../context/user"
 import { useNavigate,Link } from "react-router-dom"
 import styles from './Login.module.css'
+import {buscarUsuarioPorId} from "../controllers/usuario"
 
 
 export default function Buscador(){
@@ -10,7 +11,26 @@ export default function Buscador(){
     const user= useUser()
     useEffect(()=>{
         if(user){
-            navigate("/AppPage")
+            const comprove= async (id)=>{
+
+                const nuevo= await buscarUsuarioPorId(id)
+
+                if(nuevo){
+                    console.log("es nuebo")
+                    navigate("/AppPage")
+                }else{
+                    
+                    
+                    
+
+                    navigate("/SingGoogle")
+                    
+                }
+
+            }
+            comprove(user.email)
+
+            
         }
 
     }
@@ -26,6 +46,9 @@ export default function Buscador(){
 
     const handleLogin= async (e)=> {
         const user = await SingInwithEmail(email,password)
+
+        
+      
         
     }
 
@@ -33,7 +56,7 @@ export default function Buscador(){
     const handleLogingGoogle= async (e)=> {
         const user = await singInGoogle()
         console.log(user)
-
+        
 
     }
 

@@ -37,7 +37,7 @@ export default function Perfil(){
             <Link to={"/AppPage"}><button onClick={()=>{submit(titulo)}} className={styles.button}>Regresar</button></Link>
 
 
-            {juego? (<GameCard titulo={juego.titulo} descripcion={juego.descripcion} genero={juego.genero} juego={fill} setJuego={setFill}></GameCard>):("Cargando")}
+            {juego? (<GameCard titulo={juego.titulo} descripcion={juego.descripcion} genero={juego.genero} juego={fill} setJuego={setFill}></GameCard>):("")}
             
 
         </div>

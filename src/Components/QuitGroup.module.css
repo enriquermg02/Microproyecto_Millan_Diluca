@@ -14,5 +14,10 @@
 .conteiner{
     display: flex;
     justify-content: center;
+    border-radius: 5px;
+    margin: 0.2rem;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding:1rem;
+
 }

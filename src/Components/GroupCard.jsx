@@ -6,12 +6,18 @@ import { useEffect, useState } from "react"
 import {buscarJuego} from "../controllers/juegos"
 import styles from './GroupCard.module.css'
 import { Link } from "react-router-dom"
+import {getUsuario} from "../controllers/usuario"
+
+
+
 
 export default function GroupCard({id,nombre,descripcion,videojuegos}){
     
     const user= useUser()
+    
     //esto es diferente, hay que tener ojo con esto
     const [Juegos,setJuegos]=useState([])
+    const [subscrito,setSubscrito]=useState(false)
     
 
     const uwu = async () => {
@@ -38,12 +44,42 @@ export default function GroupCard({id,nombre,descripcion,videojuegos}){
         haha();
     }, []);
 
+    useEffect(()=>{
+        if(user){
+
+            const uwu=async ()=>{
+               
+                
+                const usuario= await getUsuario(user.email)
+                
+                const gruposUsuario=usuario.grupos
+
+                if(gruposUsuario.includes(id)){
+                    setSubscrito(true)
+                }
+               
+               
+
+            }
+            
+            uwu()
+        }
+
+    }
+
+    ,[user])
+
+    function handleClick(user,id){
+        buscarUsuario(user,id) 
+        setSubscrito(true)
+    }
+
 
     return (
     <div className={styles.conteiner}>
 
-        <div className={styles.titulo}>{id}</div>   
-        <div className={styles.titulo}>{nombre}</div>
+        <h1 className={styles.titulo}>{id}</h1>   
+        <h1 className={styles.titulo}>{nombre}</h1>
         <div className={styles.titulo} >{descripcion}</div>
         
 
@@ -53,9 +89,10 @@ export default function GroupCard({id,nombre,descripcion,videojuegos}){
         ))} 
 
         </div>
-
-        <button onClick={()=>{buscarUsuario(user.email,id)}} className={styles.button}>Subscribe</button>
+        {subscrito? (""):(<button onClick={()=>{ handleClick(user.email,id) }} className={styles.button}>Subscribe</button>)}
+        
         <Link to={"/AppPage"}><button className={styles.button}>Regresar</button></Link> 
+        
 
     </div>)
 }

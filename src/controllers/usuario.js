@@ -6,12 +6,47 @@ import {db} from "../firebase"
 
 export async function createUser(Nombre,Apellido,UserName,email,password,juego){
     //const id = generateId()
-    console.log(typeof(email))
+ 
     const userCollection=doc(collection(db,"Usuarios"),email)
     const usuario={Nombre,Apellido,UserName,email,password,grupos:[],juego}
     await setDoc(userCollection,usuario)
     
 }
+
+export async function buscarUsuarioPorId(userId) {
+    try {
+      // Obtén una referencia al documento del usuario en Firestore
+   
+
+
+
+     // Reemplaza 'usuarios' con el nombre de tu colección
+      const userRef= await getDoc(doc(db,"Usuarios",userId))
+      // Consulta el documento en Firestore
+     
+      // Verifica si el documento existe
+      if (userRef.exists()) {
+        
+        // El usuario existe en Firestore
+        return true;
+      } else {
+        // El usuario no existe en Firestore
+        return false;
+      }
+    } catch (error) {
+    
+      // Maneja el error según tus necesidades (lanzar una excepción, retornar un valor especial, etc.)
+      throw error;
+    }
+  }
+
+
+
+
+
+
+
+
 
 
 function generateId() {
