@@ -4,9 +4,11 @@ import useGrupos from "../hooks/GroupLoad"
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
 import { useNavigate,Link } from "react-router-dom"
+import TarjetaGrupo from "../Components/TarjetaGrupo"
 import GameCard from "../Components/GameCard"
 import GroupCard from "../Components/GroupCard"
 import styles from './AppPage.module.css'
+import Userboton from "../../icons/account.svg"
 
 
 export default function AppPage(){
@@ -41,21 +43,23 @@ export default function AppPage(){
     
     return (
             <div className={styles.conteiner}>
-                <button onClick={singOut} >
-                    SING OUT
-                </button>
-                <button onClick={()=>{console.log(user)}}>
-                    A VER
-                </button>
-                <Link to="/login" className={styles.link}>Dale aqui para ir a login</Link>  
-                <Link to="/Perfil" className={styles.link}>Dale aqui para ir a Perfil</Link> 
-                <button onClick={handleButtonBusqueda}>BUSQUEDA</button>
-
-                {grupos?.map((prop) => (
-                    <div key={prop.id} className={styles.card}>
-                        <GroupCard key={prop.id} id={prop.id} nombre={prop.data.nombre} descripcion={prop.data.descripcion} videojuegos={prop.data.videojuegos}/>
-                    </div>
-                ))}
+                <div className={styles.header}>
+                    <button onClick={singOut} className={styles.button}>
+                        SING OUT
+                    </button> 
+                    <button onClick={handleButtonBusqueda} className={styles.button}>BUSQUEDA</button>
+                    <Link to="/Perfil" className={`${styles.button} ${styles.user}`}><img src={Userboton} alt="user" /></Link> 
+                    
+                </div>
+                
+                <div className={styles.contenedorTarjetas}>
+                    {grupos?.map((prop) => (
+                        <div key={prop.id} className={styles.card}>
+                            <TarjetaGrupo key={prop.id} id={prop.id} nombre={prop.data.nombre}/>
+                        </div>
+                    ))}
+                </div>
+                
             </div>
     )
 }

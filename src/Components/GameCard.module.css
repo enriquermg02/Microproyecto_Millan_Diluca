@@ -1,0 +1,15 @@
+.button{
+    background-color: beige;
+    color: #F27F3D;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 15rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+@media(min-width:768px){
+    .button:hover{
+        background-color: blanchedalmond;
+    }
+}

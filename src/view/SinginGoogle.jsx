@@ -69,9 +69,7 @@ const handleMostrarOcultarJuegos = () => {
                     {juegos ? (
                         <div className={styles.color}>
                             {juegos?.map((prop) => (
-                                <button className={styles.gameCard}>
                                     <GameCard key={prop.id} id={prop.id} titulo={prop.data.titulo} juego={juegoG} setJuego={setJuegoG} />
-                                </button>
                             ))}
                         </div>
                     ) : (
@@ -82,10 +80,10 @@ const handleMostrarOcultarJuegos = () => {
         }
       
  
-        <button onClick={()=>{
+        {/* <button onClick={()=>{
           console.log(juegoG)
           console.log(usernameG)
-        }}>fff</button>
+        }}>fff</button> */}
       <button onClick={handleLogingGoogle} disabled = {!juegoG || !usernameG} className={styles.button}>Haz Click para registrarte</button>
 
     </div>

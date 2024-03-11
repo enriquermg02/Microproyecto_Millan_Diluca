@@ -6,16 +6,23 @@ import { useEffect, useState } from "react"
 import {buscarJuego} from "../controllers/juegos"
 import {buscarGrupo} from "../controllers/grupos"
 import {getUsuario,cambiarGrupo} from "../controllers/usuario"
+import styles from './QuitGroup.module.css'
 
 export default function GroupCard(id){
     
     const [grupo,setGrupo]= useState(null)
     const [grupoP,setGrupoP]= useState(null)
     const currentuser=useUser()
+    const [visible,setVisible] = useState(true) //Este state es para que muestre o no el boton de quit group al igual que el titulo del grupo. 
+
+    const handleUnsubscribe = () => {
+        console.log(grupoP);
+        let index = grupoP.indexOf(id.id);
+        grupoP.splice(index, 1);
+        cambiarGrupo(currentuser.email, grupoP);
     
-
-
-
+        setVisible(false);
+      };
 
 
     useEffect( ()=>{
@@ -52,33 +59,25 @@ export default function GroupCard(id){
 
 
     return (
-    <div>
-
+    <div className={styles.conteiner}>
         {/* <div>{id}</div> */}
-        
-        {grupo ? (
+        {visible && grupo ? (
             
-            <div>{grupo.nombre}</div>
+            <div className={styles.nombre}>{grupo.nombre}</div>
 
-        ):("Cargando")
-        
-        
-        }
-        
-         <button onClick={()=>{
-            console.log(grupoP)
-            
-            let index = grupoP.indexOf(id.id);
+        ):""}
 
-            grupoP.splice(index, 1);
-            cambiarGrupo(currentuser.email,grupoP)
-
-         }}
-         
-         >UNSUBSCRIBE</button> 
-        
-
-     
+        {visible?(
+            <button onClick={handleUnsubscribe} className={styles.button}>UNSUBSCRIBE</button>
+        ):null}
+          
 
     </div>)
+
+               // console.log(grupoP)
+            
+            // let index = grupoP.indexOf(id.id);
+
+            // grupoP.splice(index, 1);
+            // cambiarGrupo(currentuser.email,grupoP)
 }

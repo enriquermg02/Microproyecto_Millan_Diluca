@@ -17,3 +17,35 @@
 .titulo{
     color: var(--naranja);
 }
+
+.button{
+    background-color: beige;
+    color: var(--naranja);
+    font-weight: 700;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 15%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+
+
+@media(max-width:767px){
+    .button{
+        width: 20%;
+        margin-top: 1rem;
+    }
+    .input{
+        width: 15rem;
+    }
+}
+
+@media(min-width:768px){
+    .button{
+        margin-top: 1rem;
+    }
+    .input{
+        width: 15rem;
+    }
+}

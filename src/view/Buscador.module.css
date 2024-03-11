@@ -1,0 +1,24 @@
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+}
+
+.input{
+    width: 10rem;
+    margin-bottom: 2%;
+}
+
+.button{
+    width: 10rem;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    background-color: beige;
+    color: #F27F3D;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+}

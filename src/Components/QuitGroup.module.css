@@ -1,0 +1,18 @@
+.nombre{
+    font-weight: 700;
+}
+
+.button{
+    background-color: beige;
+    color: #F27F3D;
+    font-weight: 700;
+    margin-top: 2%;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.conteiner{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

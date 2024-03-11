@@ -31,8 +31,8 @@ body{
 }
 
 .sign{
-    border-radius: 20px;
-    background-color:var(--verde) ;
+    border-radius: 20px; 
+    background-color: beige;
     color: #F27F3D;
     font-weight: 700;
     font-size: 20px;
@@ -43,7 +43,7 @@ body{
 .login{
     border-radius: 20px;
     border-radius: 20px;
-    background-color:var(--verde) ;
+    background-color:beige ;
     color: #F27F3D;
     font-weight: 700;
     font-size: 20px;
@@ -84,6 +84,6 @@ body{
 
 @media (min-width:1024px){
     .sign:hover,.login:hover{
-        filter: drop-shadow(0 0 4em #157680);
+        filter: drop-shadow(0 0 4em #F27F3D);
     }
 }

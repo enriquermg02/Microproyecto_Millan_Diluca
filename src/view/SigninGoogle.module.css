@@ -32,26 +32,17 @@
     flex-direction: column;
 }
 
-.gameCard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--verde);
-    border-radius: 5px;
-    font-weight: 700;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 15px;
-    color: var(--naranja);
-}
-
 .button {
     border-radius: 20px;
     cursor: pointer;
+    background-color: beige;
+    color: var(--naranja);
+    font-weight: 700;
 }
 
 
 .botonOcultarMostrar{
-    background-color: var(--verde);
+    background-color: beige;
     color: var(--naranja);
     font-weight: 700;
     border-radius: 5px;
@@ -60,7 +51,7 @@
 
 .games{
     overflow-y:auto;
-    max-height: 300px;
+    max-height: 10rem;
 }
 
 

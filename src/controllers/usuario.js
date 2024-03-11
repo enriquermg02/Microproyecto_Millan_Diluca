@@ -54,7 +54,6 @@ export async function buscarUsuario(correo,nombreg){
     
     await setDoc(ref,data);
 
-
     
 }
 

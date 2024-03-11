@@ -14,6 +14,7 @@
 
 .input{
     border-radius: 5px;
+    width: 14rem;
 }
 
 .titulo{
@@ -22,13 +23,14 @@
 
 .sign{
     margin-top: 50px;
-    background-color: var(--verde);
+    background-color: beige;
     color: var(--naranja);
     font-weight: 700;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
     border-radius: 20px;
     font-size: 20px;
+    width: 10rem;
 }
 
 .color{
@@ -45,7 +47,7 @@
 
 
 .botonOcultarMostrar{
-    background-color: var(--verde);
+    background-color: beige;
     color: var(--naranja);
     font-weight: 700;
     border-radius: 5px;
@@ -57,16 +59,13 @@
     max-height: 10rem;
 }
 
-.gameCard{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--verde);
-    border-radius: 5px;
-    font-weight: 700;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 15px;
-    color: var(--naranja);
+
+@media(min-width:768px){
+    .botonOcultarMostrar{
+        margin: 2em 0 2em 0;
+    }
+    .sign:hover{
+        filter: drop-shadow(0 0 4em #F27F3D);
+    }
 }
 

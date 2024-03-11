@@ -10,6 +10,7 @@ import Perfil from "./view/Perfil"
 import SinginGoogle from './view/SinginGoogle';
 import Intermedio from "./view/Intermedio"
 import Buscador from "./view/Buscador"
+import Grupos from './view/Grupos';
 
 
 
@@ -51,5 +52,9 @@ export const router = createBrowserRouter([
       path:'/busqueda',
       element:<Buscador/>
 
+    },
+    {
+      path:"/grupos/:id",
+      element:<Grupos/>
     }
   ]);

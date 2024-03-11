@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
-import { useNavigate } from "react-router-dom"
-import style from './Login.module.css'
+import { useNavigate,Link } from "react-router-dom"
+import styles from './Login.module.css'
 
 
 export default function Buscador(){
@@ -37,26 +37,25 @@ export default function Buscador(){
 
     }
 
+    const handleBack= ()=>{
+        navigate("/")
+    }
+    
+
 
 
     return (
-    <div className={style.conteiner}>
+    <div className={styles.conteiner}>
 
-        <h1 className={style.titulo}>Email</h1>
-        <input value={email} onChange={e =>  setEmail(e.target.value) } className={style.email}></input>
-        <h1 className={style.titulo}>Password</h1>
-        <input value={password} onChange={e =>  setPassword(e.target.value) }></input>
-
-        <button onClick={ handleLogin}>LOGIN</button>
-        <button onClick={handleLogingGoogle}>GOOGLE</button>
-        <button onClick={singOut}>SING OUT</button>
-        <button onClick={()=>{console.log(user) }
-        }>A VER</button>
-       
-
-
-
-
+        <h1 className={styles.titulo}>Email</h1>
+        <input value={email} onChange={e =>  setEmail(e.target.value) } className={styles.input}></input>
+        <h1 className={styles.titulo}>Password</h1>
+        <input value={password} onChange={e =>  setPassword(e.target.value) } className={styles.input}></input>
+        <button className={styles.button} onClick={ handleLogin}>LOGIN</button>
+        <button className={styles.button} onClick={handleLogingGoogle}>GOOGLE</button>
+        <button className={styles.button} onClick={handleBack}>Regresar</button> 
+        {/* <button className={styles.button} onClick={()=>{console.log(user) }
+        }>A VER</button> */}
 
     </div>)
 }

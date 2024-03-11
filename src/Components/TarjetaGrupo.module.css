@@ -1,0 +1,22 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.button{
+    background-color: beige;
+    border: none;
+    color: #F27F3D;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+@media(min-width:768px){
+    .button{
+        width: 6rem;
+        padding: 5%;
+    }
+}

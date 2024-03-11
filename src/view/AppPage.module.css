@@ -5,6 +5,34 @@
     --naranja:#F27F3D;
 }
 
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 5rem 0 5rem 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: beige;
+    color: var(--naranja);
+    border-radius: 5px;
+    width: 8rem;
+    cursor: pointer;
+    padding: 1.5%;
+    border: none;
+    font-weight: 700;
+
+}
+
+.user{
+    width: 3rem;
+}
 
 .conteiner{
     display: flex;
@@ -18,12 +46,28 @@
     color: var(--naranja);
 }
 
-.card{
+.contenedorTarjetas{
+    max-width: 800px;
+    margin-inline: auto;
+    min-height: 400px;
+    margin-inline: auto;
+    margin-top: 30px;
     display: flex;
-    justify-content: center;
+    gap: 1rem;
     align-items: center;
-    text-align: center;
-    background-color: var(--verde);
-    color: var(--naranja);
-    margin: 10px;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: space-around;
 }
+
+.card{
+    border:2px solid black;
+    border-radius: 15px;
+    padding: 3rem;
+    background-color:rgb(255, 255, 255);
+    color: #F27F3D;
+    font-weight: 700;
+    box-shadow: 0px 4px 8px rgba(242, 127, 61, 1);
+}
+
+

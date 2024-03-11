@@ -54,3 +54,4 @@ export async function buscarGrupo(numero){
     return grupo
   
 }
+

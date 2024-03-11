@@ -4,6 +4,8 @@ import {useUser} from "../context/user"
 import GameCard from "./GameCard"
 import { useEffect, useState } from "react"
 import {buscarJuego} from "../controllers/juegos"
+import styles from './GroupCard.module.css'
+import { Link } from "react-router-dom"
 
 export default function GroupCard({id,nombre,descripcion,videojuegos}){
     
@@ -38,11 +40,11 @@ export default function GroupCard({id,nombre,descripcion,videojuegos}){
 
 
     return (
-    <div>
+    <div className={styles.conteiner}>
 
-        <div>{id}</div>   
-        <div>{nombre}</div>
-        <div>{descripcion}</div>
+        <div className={styles.titulo}>{id}</div>   
+        <div className={styles.titulo}>{nombre}</div>
+        <div className={styles.titulo} >{descripcion}</div>
         
 
         <div>
@@ -52,7 +54,8 @@ export default function GroupCard({id,nombre,descripcion,videojuegos}){
 
         </div>
 
-        <button onClick={()=>{buscarUsuario(user.email,id)}}>Subscribe</button>
+        <button onClick={()=>{buscarUsuario(user.email,id)}} className={styles.button}>Subscribe</button>
+        <Link to={"/AppPage"}><button className={styles.button}>Regresar</button></Link> 
 
     </div>)
 }

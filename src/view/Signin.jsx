@@ -84,9 +84,8 @@ export default function Sign(){
                     {juegos ? (
                         <div className={styles.color}>
                             {juegos?.map((prop) => (
-                                <button className={styles.gameCard} key={prop.id}>
                                     <GameCard key={prop.id} id={prop.id} titulo={prop.data.titulo} juego={juego} setJuego={setJuego} />
-                                </button>
+                                
                             ))}
                         </div>
                     ) : (
@@ -95,10 +94,10 @@ export default function Sign(){
                 </div>
             )
         }
-            <button onClick={()=>{
+            {/* <button onClick={()=>{
                 console.log(juego)
                 console.log(username)
-                }}>fff</button>
+                }}>fff</button> */}
             <button onClick={ handleSignin} className={styles.sign}>SIGN</button>
 
         </div>

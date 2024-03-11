@@ -18,13 +18,35 @@
 }
 
 .buton{
-    background-color: var(--verde);
+    background-color: beige;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 15px;
     color: var(--naranja);
     font-weight: 700;
     width: 200px;
     margin: 10px 0 10px 0;
+    cursor: pointer;
 }
 
 .grupos{
     color: var(--naranja );
+}
+
+.botonOcultarMostrar{
+    background-color: beige;
+    color: var(--naranja);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.games{
+    overflow-y:auto;
+    max-height: 10rem;
+}
+
+.grupos{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }

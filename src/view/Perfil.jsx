@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-
 import {createUserWithEmail,SingInwithEmail,singInGoogle,singOut} from "../controllers/auth"
 import {useUser} from "../context/user"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import {getUsuario,cambiarInfoUsuario} from "../controllers/usuario"
 import  QuitGroup  from "../Components/QuitGroup"
 import styles from './Perfil.module.css'
@@ -79,9 +78,7 @@ export default function Perfil(){
                     {juegos ? (
                         <div className={styles.color}>
                             {juegos?.map((prop) => (
-                                <button className={styles.gameCard} key={prop.id}>
                                     <GameCard key={prop.id} id={prop.id} titulo={prop.data.titulo} juego={game} setJuego={setGame} />
-                                </button>
                             ))}
                         </div>
                     ) : (
@@ -96,6 +93,7 @@ export default function Perfil(){
 
 
             <button onClick={()=>{cambiarInfoUsuario(currentuser.email,Nombre,Apellido,game)}} className={styles.buton}>Cambiar</button>
+            <Link to={"/AppPage"}><button className={styles.buton}>Regresar</button></Link>
 
 
             <div className={styles.grupos}>
@@ -112,7 +110,7 @@ export default function Perfil(){
                 ): ("Cargando")}
 
             </div>
-            <button onClick={()=>{console.log(lol)}}>uwu</button>
+            {/* <button onClick={()=>{console.log(lol)}}>uwu</button> */}
  
 
 
