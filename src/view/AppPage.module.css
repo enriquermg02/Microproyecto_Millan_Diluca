@@ -71,6 +71,19 @@
 }
 
 
+@media(max-width:280px){
+    .header{
+        flex-direction: column;
+        margin-top: 15%;
+    }
+    .card:last-child{
+        width: 60%;
+    }
+    .contenedorTarjetas{
+        margin-top: 15%;
+    }
+}
+
 
 
 

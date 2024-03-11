@@ -31,7 +31,7 @@ export default function Sign(){
             await createUser(name,lastName,username,email,password,juego)
             
         }else{
-            alert("Ajuro debes de proporcionar un correo y una contraseña")
+            alert("Todos los campos son obligatorios")
         }
 
     }
