@@ -21,6 +21,7 @@ const SinginGoogle = () => {
     
 
   function separarNombreApellido(nombreCompleto) {
+    console.log(nombreCompleto)
     const partes = nombreCompleto.split(' '); // Divide la cadena en un array de substrings separados por espacios
     const nombre = partes[0]; // El primer elemento es el nombre
     const apellido = partes.slice(1).join(' '); // Los elementos restantes son el apellido
@@ -29,13 +30,14 @@ const SinginGoogle = () => {
 
   const handleLogingGoogle= async (e)=> {
     const user = await singInGoogle()
-   
 }
 
 useEffect(()=>{
   if(user){
+    console.log(user)
 
     const NombreApellido=separarNombreApellido(user.displayName)
+    console.log(NombreApellido)
     const username=usernameG
     const juego=juegoG
     const name=NombreApellido.nombre

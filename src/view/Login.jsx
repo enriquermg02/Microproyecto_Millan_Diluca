@@ -10,25 +10,26 @@ export default function Buscador(){
     const navigate= useNavigate()
     const user= useUser()
     useEffect(()=>{
+        console.log(user)
         if(user){
-            const comprove= async (id)=>{
+            
+            // const comprove= async (id)=>{
 
-                const nuevo= await buscarUsuarioPorId(id)
+            //     const nuevo= await buscarUsuarioPorId(id)
 
-                if(nuevo){
-                    console.log("es nuebo")
-                    navigate("/AppPage")
-                }else{
+            //     if(nuevo){
+            //         console.log("es nuebo")
+            //         navigate("/AppPage")
+            //     }else{
                     
                     
+            //         navigate("/SingGoogle")
                     
+            //     }
 
-                    navigate("/SingGoogle")
-                    
-                }
-
-            }
-            comprove(user.email)
+            // }
+            // comprove(user.email)
+            navigate("/AppPage")
 
             
         }
