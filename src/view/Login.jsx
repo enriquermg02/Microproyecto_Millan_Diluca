@@ -4,32 +4,53 @@ import {useUser} from "../context/user"
 import { useNavigate,Link } from "react-router-dom"
 import styles from './Login.module.css'
 import {buscarUsuarioPorId} from "../controllers/usuario"
+import {createUser} from "../controllers/usuario"
 
 
 export default function Buscador(){
     const navigate= useNavigate()
     const user= useUser()
+
+    function separarNombreApellido(nombreCompleto) {
+        
+        const partes = nombreCompleto.split(' '); // Divide la cadena en un array de substrings separados por espacios
+        const nombre = partes[0]; // El primer elemento es el nombre
+        const apellido = partes.slice(1).join(' '); // Los elementos restantes son el apellido
+        return { nombre, apellido };
+      }
+
+
+ 
+
+
     useEffect(()=>{
-        console.log(user)
+        
         if(user){
             
-            // const comprove= async (id)=>{
+            const comprove= async (id)=>{
 
-            //     const nuevo= await buscarUsuarioPorId(id)
+                const nuevo= await buscarUsuarioPorId(id)
 
-            //     if(nuevo){
-            //         console.log("es nuebo")
-            //         navigate("/AppPage")
-            //     }else{
+                if(nuevo){
+                    console.log("es nuebo")
+                    navigate("/AppPage")
+                }else{
                     
-                    
-            //         navigate("/SingGoogle")
-                    
-            //     }
+                    const NombreApellido=separarNombreApellido(user.displayName)
+          
+            
+                         const crear=async ()=>{await createUser(NombreApellido.nombre,NombreApellido.apellido,"username",user.email,"password","")}
+                                  
+                    crear()
+          
 
-            // }
-            // comprove(user.email)
-            navigate("/AppPage")
+                    navigate("/AppPage")
+                    
+                }
+
+            }
+            comprove(user.email)
+            // navigate("/AppPage")
 
             
         }
